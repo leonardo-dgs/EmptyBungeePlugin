@@ -1,0 +1,6 @@
+name: @name@
+main: @mainPackage@.@name@
+version: @version@
+description: @description@
+author: @author@
+website: @website@
