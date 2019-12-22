@@ -29,12 +29,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'net.md-5:bungeecord-api:' + bungeeVersion
-    compileOnly 'net.md-5:bungeecord-chat:' + bungeeVersion
-    compileOnly 'net.md-5:bungeecord-event:' + bungeeVersion
-    compileOnly 'org.projectlombok:lombok:' + lombokVersion
+    shadow 'net.md-5:bungeecord-api:' + bungeeVersion
+    shadow 'net.md-5:bungeecord-chat:' + bungeeVersion
+    shadow 'net.md-5:bungeecord-event:' + bungeeVersion
+    shadow 'org.projectlombok:lombok:' + lombokVersion
     annotationProcessor 'org.projectlombok:lombok:' + lombokVersion
-    compile 'org.bstats:bstats-bungeecord-lite:' + bStatsVersion
+    implementation 'org.bstats:bstats-bungeecord-lite:' + bStatsVersion
 }
 
 tasks.processResources {
