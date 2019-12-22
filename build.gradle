@@ -2,7 +2,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
 group = 'net.leonardo_dgs'
@@ -13,7 +13,7 @@ String mainPackage = project.group + '.' + project.name.toLowerCase()
 String author = 'Leonardo_DGS'
 String website = ''
 
-String bungeeVersion = '1.14-SNAPSHOT'
+String bungeeVersion = '1.15-SNAPSHOT'
 String lombokVersion = '1.18.10'
 String bStatsVersion = '1.5'
 
