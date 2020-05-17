@@ -14,7 +14,7 @@ String author = 'Leonardo_DGS'
 String website = ''
 
 String bungeeVersion = '1.15-SNAPSHOT'
-String lombokVersion = '1.18.10'
+String lombokVersion = '1.18.12'
 String bStatsVersion = '1.5'
 
 tasks.compileJava.sourceCompatibility = 1.8
