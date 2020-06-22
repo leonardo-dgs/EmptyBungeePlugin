@@ -2,7 +2,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
 }
 
 group = 'net.leonardo_dgs'
@@ -29,10 +29,10 @@ repositories {
 }
 
 dependencies {
-    shadow 'net.md-5:bungeecord-api:' + bungeeVersion
-    shadow 'net.md-5:bungeecord-chat:' + bungeeVersion
-    shadow 'net.md-5:bungeecord-event:' + bungeeVersion
-    shadow 'org.projectlombok:lombok:' + lombokVersion
+    compileOnly 'net.md-5:bungeecord-api:' + bungeeVersion
+    compileOnly 'net.md-5:bungeecord-chat:' + bungeeVersion
+    compileOnly 'net.md-5:bungeecord-event:' + bungeeVersion
+    compileOnly 'org.projectlombok:lombok:' + lombokVersion
     annotationProcessor 'org.projectlombok:lombok:' + lombokVersion
     implementation 'org.bstats:bstats-bungeecord-lite:' + bStatsVersion
 }
