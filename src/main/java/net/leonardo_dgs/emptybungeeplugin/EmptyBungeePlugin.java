@@ -9,14 +9,12 @@ public final class EmptyBungeePlugin extends Plugin {
     private static EmptyBungeePlugin instance;
 
     @Override
-    public void onEnable()
-    {
+    public void onEnable() {
         instance = this;
     }
 
     @Override
-    public void onDisable()
-    {
+    public void onDisable() {
 
     }
 
