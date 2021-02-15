@@ -1,24 +1,15 @@
-import org.apache.tools.ant.filters.ReplaceTokens
-
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
 }
 
 group = 'net.leonardo_dgs'
 version = '1.0.0'
 description = ''
 
-String mainPackage = project.group + '.' + project.name.toLowerCase()
-String author = 'Leonardo_DGS'
-String website = ''
+def mainPackage = 'net.leonardo_dgs.emptybungeeplugin'
 
-String bungeeVersion = '1.16-R0.1'
-String lombokVersion = '1.18.12'
-String bStatsVersion = '1.5'
-
-tasks.compileJava.sourceCompatibility = 1.8
-tasks.compileJava.targetCompatibility = 1.8
+tasks.compileJava.sourceCompatibility = JavaVersion.VERSION_1_8
 tasks.compileJava.options.encoding = 'UTF-8'
 
 repositories {
@@ -28,37 +19,34 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'net.md-5:bungeecord-api:' + bungeeVersion
-    compileOnly 'net.md-5:bungeecord-chat:' + bungeeVersion
-    compileOnly 'net.md-5:bungeecord-event:' + bungeeVersion
-    compileOnly 'org.projectlombok:lombok:' + lombokVersion
-    annotationProcessor 'org.projectlombok:lombok:' + lombokVersion
-    implementation 'org.bstats:bstats-bungeecord-lite:' + bStatsVersion
+    compileOnly 'net.md-5:bungeecord-api:1.16-R0.4'
+    compileOnly 'net.md-5:bungeecord-chat:1.16-R0.4'
+    compileOnly 'net.md-5:bungeecord-event:1.16-R0.4'
+    compileOnly 'org.projectlombok:lombok:1.18.18'
+    annotationProcessor 'org.projectlombok:lombok:1.18.18'
+    implementation 'org.bstats:bstats-bungeecord:2.2.1'
 }
 
-tasks.processResources {
-    filter ReplaceTokens, tokens: [
-            "name"       : project.name,
-            "mainPackage": mainPackage,
-            "version"    : project.version,
-            "description": project.description,
-            "author"     : author,
-            "website"    : website
-    ]
+processResources {
+    expand(
+            version: project.version,
+            description: project.description,
+            author: 'Leonardo_DGS',
+            website: ''
+    )
 }
 
 tasks.jar.enabled = false
 
 tasks.shadowJar {
-    archiveFileName = project.name + '.jar'
+    archiveBaseName.set(project.name)
+    archiveClassifier.set("")
+    archiveVersion.set("")
     minimize()
+
     relocate 'org.bstats.bungeecord', mainPackage + '.bstats'
 }
 
 artifacts {
     archives shadowJar
-}
-
-configurations.all {
-    transitive = false
 }
