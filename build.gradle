@@ -50,3 +50,7 @@ tasks.shadowJar {
 artifacts {
     archives shadowJar
 }
+
+configurations.all {
+    transitive = false
+}
