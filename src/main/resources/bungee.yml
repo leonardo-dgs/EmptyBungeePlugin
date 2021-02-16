@@ -1,5 +1,5 @@
 name: EmptyBungeePlugin
-main: net.leonardo_dgs.EmptyBungeePlugin
+main: net.leonardo_dgs.emptybungeeplugin.EmptyBungeePlugin
 version: ${version}
 description: ${description}
 author: ${author}
